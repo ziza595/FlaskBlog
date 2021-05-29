@@ -1,0 +1,44 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-9">
+        <div class="card mt-5">
+            <div class="card-header">
+                <img src="{{ url_for('static', filename='img/profile_pics/' + post.author.image_file) }}" alt="" class="rounded-circle article-img">
+                <h2>{{ post.title }}</h2>
+                <small class="text-muted">Ajouté par {{ post.author.username }}</small>
+                <small class="text-muted">le {{ post.date_posted.strftime('%d-%m-%Y') }}</small>
+                {% if post.author == current_user %}
+                    <div class="c">
+                        <a href="{{ url_for('update_post', post_id=post.id) }}" class="btn btn-primary btn-sm mt-1 mb-1">Mettre à jour</a>
+                        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <p>{{ post.content }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Voulez-vous vraiment supprimer ce post ?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST">
+                <input class="btn btn-danger" type="submit" value="Supprimer">
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

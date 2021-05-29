@@ -1,0 +1,19 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+    <div class="card mt-5">
+        <div class="card-header card-primary">
+            <h1>Blog</h1>
+        </div>
+        <div class="card-body">
+            <article>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, soluta necessitatibus laborum quo expedita ea hic vitae ducimus odit cum amet repellat. Cupiditate omnis laboriosam aperiam ut magni ipsum tenetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem mollitia ipsum labore sapiente provident adipisci eius ratione quisquam, nesciunt dolorem. Distinctio molestiae quo adipisci repellat quam est, fuga ratione quidem?
+                Minima, neque nobis ad illo accusamus eligendi labore officiis perspiciatis voluptates fugit corporis omnis quos nulla, veniam optio iste vero? Voluptatem, reiciendis? Accusantium ex cum eaque architecto assumenda ad rem.
+                Est eligendi quia minus omnis nesciunt, quisquam tempora cum harum molestiae quas incidunt, unde ab eius, repellat deleniti vitae dolor recusandae a inventore temporibus soluta porro pariatur! Amet, vero error?</p>
+            </article>
+        </div>
+    </div>
+    <p><a href="{{ url_for('posts_index') }}">Retourner</a></p>
+{% endblock %}

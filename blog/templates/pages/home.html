@@ -1,0 +1,16 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+    <div class="card text-center mt-5">
+        <div class="card-header bg-info text-white">
+            <h3>Page d'accueil</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <p class="text-monospace">Bienvenu dans notre première application avec Flask</p>
+            </h5>
+            <p class="text-monospace">Vous pouvez explorer notre blog</p>
+            <a href="{{ url_for('posts_index') }}" class="btn btn-info">En cliquant ici</a>
+        </div>
+    </div>
+{% endblock %}
